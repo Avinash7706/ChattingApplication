@@ -4,7 +4,7 @@ export default function ChattingHeader() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-0 left-[25%] right-[25%] flex items-center justify-between text-white font-semibold text-sm bg-[#1a1630] px-4 py-2 z-30 border-b-2 border-r-2 border-l-2 border-[#2a2545] ">
+      <header className="fixed top-0 left-[25%] right-[25%] flex items-center justify-between text-white font-semibold text-sm bg-[#1a1630] px-4 py-2 z-30 border-b-2 border-r-2 border-l-2 border-[#2a2545]">
         <div className="flex items-center space-x-3">
           <img
             alt="Ann Schleifer profile picture"
@@ -13,11 +13,13 @@ export default function ChattingHeader() {
           />
           <div className="flex flex-col">
             <span>Ann Schleifer</span>
-            <div className="flex items-center"><span className="text-[#4a4a6a] text-xs">Online</span>
-            <span
+            <div className="flex items-center">
+              <span className="text-[#4a4a6a] text-xs">Online</span>
+              <span
                 aria-label="Unread message indicator"
                 className="w-2 h-2 rounded-full bg-[#d9d900] ml-2"
-              ></span></div>
+              ></span>
+            </div>
           </div>
         </div>
 
@@ -29,14 +31,14 @@ export default function ChattingHeader() {
         </button>
       </header>
 
-      {/* Space below header */}
-      <div className=" flex flex-col space-y-2 text-xs text-[#6b6b7b] select-none">
-        <div className="flex justify-center">
-          <span className="border-b border-[#2a2545] pb-1 w-20 text-center">
+      {/* Today separator (below header) */}
+      {/* <div className="pt-[70px]"> 
+        <div className="flex justify-center my-4">
+          <span className="border-b border-[#2a2545] pb-1 w-20 text-center text-xs text-[#6b6b7b] select-none">
             Today
           </span>
         </div>
-      </div>
+      </div> */}
     </>
-  );
+  )
 }
