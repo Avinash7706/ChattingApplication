@@ -1,9 +1,14 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainFile from "./mainScreen/common/MainFile";
+import TotalFile from "./mainScreen/components/TotalFile";
 
-import TotalFile from "./components/TotalFile";
 export default function App() {
   return (
-    <div>
-      <TotalFile/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainFile />} />
+        <Route path="/total" element={<TotalFile />} />
+      </Routes>
+    </Router>
   );
 }

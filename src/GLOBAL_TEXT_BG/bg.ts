@@ -1,0 +1,10 @@
+export const bgColor = '[#1a1630]';
+export const hoverColor = 'blue-700';
+export const loginBtnBg = 'white';
+export const signupBtnBg = 'blue-600';
+export const textHighlightColor = 'black';
+export const borderColor = 'white';
+export const hoverText = 'black';
+export const hoverBg = 'white';
+export const buttonBg = 'gray-700';
+export const buttonHover = '#5a68e0';
