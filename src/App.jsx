@@ -7,7 +7,8 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainFile />} />
-        <Route path="/total" element={<TotalFile />} />
+        <Route path="/chat-app" element={<TotalFile />} />            {/* optional id case */}
+        <Route path="/chat-app/:id" element={<TotalFile />} />        {/* specific id case */}
       </Routes>
     </Router>
   );

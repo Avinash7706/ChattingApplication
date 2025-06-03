@@ -25,7 +25,7 @@ export default function Chatting() {
   return (
     <div className="flex flex-col h-screen w-full">
      
-      <div className="flex-1 w-full overflow-y-auto px-4 pt-4 pb-20 space-y-2 hide-scrollbar">
+      <div className="flex-1 w-full overflow-y-auto px-4 pt-10 pb-20 space-y-2 hide-scrollbar">
         {messages.map((msg, idx) => (
           <div
             key={idx}

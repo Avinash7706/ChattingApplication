@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { FaPlus, FaPaperPlane, FaCamera } from "react-icons/fa";
+import { replies } from "../../commonArray/chattingArray";
 
 export default function ChattingInput({ onSendMessage }) {
   const [input, setInput] = useState("");
@@ -19,22 +20,7 @@ export default function ChattingInput({ onSendMessage }) {
 
     // Bot reply after 1 second
     setTimeout(() => {
-      const replies = [
-        "That's interesting! Tell me more about it.",
-        "I understand what you mean.",
-        "Thanks for sharing that with me!",
-        "That's a great point!",
-        "I'm here to help you with that.",
-        "Could you elaborate on that?",
-        "I appreciate your perspective.",
-        "Let’s explore that idea further.",
-        "That makes a lot of sense.",
-        "Can you give me an example?",
-        "Nice! Keep going.",
-        "You're making great progress!",
-        "Let me know if you'd like more info.",
-        "You're on the right track.",
-      ];
+      replies
       const randomReply = replies[Math.floor(Math.random() * replies.length)];
       onSendMessage({ text: randomReply, isUser: false });
     }, 1000);

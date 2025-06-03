@@ -9,7 +9,7 @@ export default function LeftSidebarPost() {
         className="flex justify-between items-center text-white font-semibold text-xs bg-[#2a2545] rounded-md px-3 py-2 w-full"
         type="button"
       >
-        <span>Shared Post</span>
+        <span className='py-2'>Shared Post</span>
         <i className="fas fa-chevron-down text-xs"></i>
       </button>
       <div

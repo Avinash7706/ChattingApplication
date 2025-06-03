@@ -1,6 +1,11 @@
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import { useParams } from "react-router-dom";
+import { accounts } from "../../commonArray/chattingArray";
 
 export default function ChattingHeader() {
+  const { id } = useParams(); // Destructure to get id directly
+  const selectedAccount = accounts.find((item) => item.id === id);
+ 
   return (
     <>
       {/* Header */}
@@ -9,10 +14,10 @@ export default function ChattingHeader() {
           <img
             alt="Ann Schleifer profile picture"
             className="w-10 h-10 rounded-full"
-            src="https://storage.googleapis.com/a1aa/image/aec93123-9edc-46ba-80a2-fdcd8a8321c2.jpg"
+            src={selectedAccount?selectedAccount.image:"https://storage.googleapis.com/a1aa/image/aec93123-9edc-46ba-80a2-fdcd8a8321c2.jpg"}
           />
           <div className="flex flex-col">
-            <span>Ann Schleifer</span>
+            <span>{selectedAccount?selectedAccount.name:"Avika Shrivastav"}</span>
             <div className="flex items-center">
               <span className="text-[#4a4a6a] text-xs">Online</span>
               <span
@@ -31,14 +36,7 @@ export default function ChattingHeader() {
         </button>
       </header>
 
-      {/* Today separator (below header) */}
-      {/* <div className="pt-[70px]"> 
-        <div className="flex justify-center my-4">
-          <span className="border-b border-[#2a2545] pb-1 w-20 text-center text-xs text-[#6b6b7b] select-none">
-            Today
-          </span>
-        </div>
-      </div> */}
+     
     </>
   )
 }

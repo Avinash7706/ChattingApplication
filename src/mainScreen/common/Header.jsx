@@ -8,6 +8,7 @@ import {
   textHighlightColor,
 } from '../../GLOBAL_TEXT_BG/bg';
 import { textColor } from '../../GLOBAL_TEXT_BG/text';
+import { FaHandHoldingHeart } from "react-icons/fa";
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -20,18 +21,18 @@ export default function Header() {
         {/* Brand */}
         <div className="flex items-center space-x-3">
           <div
-            className={`bg-${loginBtnBg} rounded px-2 py-2 text-${textHighlightColor} font-semibold text-sm select-none`}
+            className={`rounded px-2 py-2 text-${textHighlightColor} rounded-full bg-red-600 select-none`}
           >
-            UI
+           <FaHandHoldingHeart className='text-white animate-bounce'/> 
           </div>
           <span className={`text-${textColor} font-semibold text-lg select-none`}>
-            Chatbot UI
+            Life Partner
           </span>
         </div>
 
         {/* Nav Buttons */}
         <div className={`flex items-center space-x-4 text-${textColor} text-sm font-normal select-none`}>
-        <Link to="/total">
+        <Link to="/chat-app">
         Home</Link>
           <a href="#" className="hover:underline text-base">About</a>
           
