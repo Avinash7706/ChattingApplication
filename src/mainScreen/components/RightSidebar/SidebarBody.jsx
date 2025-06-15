@@ -1,52 +1,10 @@
 import { useState } from "react";
 
-const messages = [
-  {
-    name: "Alfredo Workman",
-    message: "Hi, I noticed a squ...",
-    time: "04:02 am",
-    image:
-      "https://storage.googleapis.com/a1aa/image/1593f98f-9080-4926-7833-066e649552fb.jpg",
-    isUnread: true,
-    isActive: false,
-    timestamp: new Date("2023-10-01T04:02:00"),
-  },
-  {
-    name: "Kianna George",
-    message: "Hi, I noticed a squ...",
-    time: "05:49 pm",
-    image:
-      "https://storage.googleapis.com/a1aa/image/959e622e-805e-48f3-7a68-dc576c5a3105.jpg",
-    isUnread: true,
-    isActive: false,
-    timestamp: new Date("2023-10-01T17:49:00"),
-  },
-  {
-    name: "Ann Schleifer",
-    message: "Hi, I noticed a squ...",
-    time: "01:34 pm",
-    image:
-      "https://storage.googleapis.com/a1aa/image/aec93123-9edc-46ba-80a2-fdcd8a8321c2.jpg",
-    isUnread: false,
-    isActive: true,
-    timestamp: new Date("2023-10-01T13:34:00"),
-  },
-  {
-    name: "Craig Culhane",
-    message: "Hi, I noticed a squ...",
-    time: "03:49 am",
-    image:
-      "https://storage.googleapis.com/a1aa/image/a77eaf3a-ac6f-4a4c-26d7-49e7ad418c72.jpg",
-    isUnread: false,
-    isActive: false,
-    timestamp: new Date("2023-10-01T03:49:00"),
-  },
-];
-
+import {accounts} from '../../commonArray/chattingArray'
 const SidebarBody = () => {
   const [sortOrder, setSortOrder] = useState("Newest");
 
-  const sortedMessages = [...messages].sort((a, b) => {
+  const sortedMessages = [...accounts].sort((a, b) => {
     return sortOrder === "Newest"
       ? b.timestamp - a.timestamp
       : a.timestamp - b.timestamp;
@@ -69,12 +27,8 @@ const SidebarBody = () => {
         </button>
       </div>
 
-      {/* 
-        1. Give this nav a fixed max-height (e.g. h-[calc(100vh-<header>)] or h-80) so it can scroll 
-        2. Remove `hide-scrollbar` 
-        3. Keep overflow-y-auto so the vertical scrollbar appears 
-      */}
-      <nav className="flex flex-col space-y-3 overflow-y-auto h-80">
+      
+      <nav className="flex flex-col space-y-3 overflow-y-auto h-80 hide-scrollbar">
         {sortedMessages.map((msg, idx) => (
           <a
             key={idx}

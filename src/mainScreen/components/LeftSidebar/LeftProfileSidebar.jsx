@@ -4,10 +4,11 @@ import {
   FaLock,
   FaInfoCircle,
   FaThumbtack,
-  FaChevronUp,
 } from "react-icons/fa";
-
+import { useState } from "react";
+import { FaChevronCircleUp, FaChevronCircleDown } from 'react-icons/fa';
 export default function LeftProfileSidebar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <div className="flex flex-col items-center space-y-3">
@@ -50,16 +51,35 @@ export default function LeftProfileSidebar() {
       </div>
 
       <div className="flex flex-col space-y-1 mt-4">
-        <button
-          aria-controls="shared-document"
-          aria-expanded="false"
-          className="flex justify-between items-center text-white font-semibold text-xs bg-[#2a2545] rounded-md px-3 py-2 w-full"
-          type="button"
+      <button
+        aria-controls="shared-document"
+        aria-expanded={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex justify-between items-center text-white font-semibold text-xs bg-[#2a2545] rounded-md px-3 py-2 w-full"
+        type="button"
+      >
+        <span className="py-2">Shared Document</span>
+        {isOpen ? (
+          <FaChevronCircleUp className="text-xs transition-transform duration-300" />
+        ) : (
+          <FaChevronCircleDown className="text-xs transition-transform duration-300" />
+        )}
+      </button>
+
+      {isOpen && (
+        <div
+          id="shared-document"
+          className="mt-2 bg-[#3a3555] rounded-md p-3 text-white text-xs"
         >
-          <span>Shared Document</span>
-          <FaChevronUp className="text-xs" />
-        </button>
-      </div>
+          {/* Put your shared document content here */}
+          <ul className="space-y-2">
+            <li>Document1.pdf</li>
+            <li>ProjectPlan.docx</li>
+            <li>MeetingNotes.txt</li>
+          </ul>
+        </div>
+      )}
+    </div>
     </>
   );
 }

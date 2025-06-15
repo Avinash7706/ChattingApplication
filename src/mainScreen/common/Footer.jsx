@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaYoutube } from 'react-icons/fa';
-import { bgColor, borderColor, hoverBg, hoverText } from '../../GLOBAL_TEXT_BG/bg';
-import { textColor } from '../../GLOBAL_TEXT_BG/text';
+import { bgColor } from '../../GLOBAL_TEXT_BG/bg';
+import ContactModal from './modal/ContactModal';
 
 export default function Footer() {
-  const [input,setInput]=useState("")
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const socialIcons = [
     { icon: <FaFacebookF />, label: 'facebook' },
     { icon: <FaTwitter />, label: 'twitter' },
@@ -12,56 +12,68 @@ export default function Footer() {
     { icon: <FaGithub />, label: 'github' },
     { icon: <FaYoutube />, label: 'youtube' },
   ];
-  const clear=()=>{
-    console.log(input)
-    setInput("")
-  }
 
   return (
-    <div className={`bg-${bgColor} text-${textColor} text-center py-8 px-4 font-['Roboto']  bottom-0 w-full z-50`}>
-      <h2 className="text-lg font-normal mb-2">Footer</h2>
-      <p className="text-sm max-w-xl mx-auto mb-4 leading-relaxed">
-        Foolish Developer is a blog website where you will find great tutorials on web design and development.
-        Here each tutorial is beautifully described step by step with the required source code.
-      </p>
+    <div className={`bg-${bgColor} text-gray-400`}>
+      <footer className="max-w-7xl mx-auto px-6 py-12 border-t-amber-300 border-1 border-r-0 border-l-0">
+        <div className="flex flex-col md:flex-row md:justify-between md:space-x-20">
+          <div className="mb-10 md:mb-0 md:flex-1 max-w-xs">
+            <h2 className="text-white font-semibold text-base mb-4">Colorlib</h2>
+            <p className="text-sm leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-between flex-1 max-w-3xl">
+            <div className="w-1/2 sm:w-1/4 mb-6">
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Portfolio</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Services</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div className="w-1/2 sm:w-1/4 mb-6">
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Clients</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Team</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Career</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Testimonials</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Journal</a></li>
+              </ul>
+            </div>
+            <div className="w-1/2 sm:w-1/4 mb-6">
+              <ul className="space-y-2 text-sm">
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
+              </ul>
+            </div>
+            <div className="w-1/2 sm:w-1/4 mb-6 flex flex-col items-start sm:items-end space-y-4">
+              <div className="flex space-x-4 text-gray-400 text-lg">
+                {socialIcons.map((social, index) => (
+                  <a key={index} href="#" aria-label={social.label} className="hover:text-white transition-colors">
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-pink-600 hover:cursor-pointer hover:bg-pink-700 transition-colors text-white text-sm font-semibold py-2 px-5 rounded-full"
+              >
+                Contact Us
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr className="border-gray-700 my-8" />
+        <p className="text-center text-xs text-gray-600 select-none">© 2019-2020 All Rights Reserved.</p>
+      </footer>
 
-      {/* Email UI only */}
-      <div className="max-w-sm mx-auto mb-6 flex flex-col sm:flex-row items-center gap-2">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          onChange={(e)=>setInput(e.target.value)}
-          value={input} 
-          className="w-full sm:flex-1 px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <button onClick={clear} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-          Send
-        </button>
-      </div>
-
-      <div className="flex justify-center space-x-4 mb-6">
-        {socialIcons.map(({ icon, label }) => (
-          <a
-            key={label}
-            href="#"
-            aria-label={label}
-            className={`text-${textColor} text-sm border border-${borderColor} rounded-full w-7 h-7 flex items-center justify-center hover:bg-${hoverBg} hover:text-${hoverText} transition`}
-          >
-            {icon}
-          </a>
-        ))}
-      </div>
-
-      <div className="flex justify-between text-sm max-w-md mx-auto px-4">
-        <span>Copyright ©2021 Foolishdeveloper</span>
-        <nav className="space-x-4">
-          {['Home', 'About', 'Contact', 'Blog'].map((item) => (
-            <a key={item} href="#" className="hover:underline">
-              {item}
-            </a>
-          ))}
-        </nav>
-      </div>
+      <ContactModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

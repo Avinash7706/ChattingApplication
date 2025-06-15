@@ -8,6 +8,8 @@ import {
   textHighlightColor,
 } from '../../GLOBAL_TEXT_BG/bg';
 import { textColor } from '../../GLOBAL_TEXT_BG/text';
+
+import { FaHandHoldingHeart } from "react-icons/fa";
 import LoginModal from '../models/LoginModal';
 import SignupModal from '../models/SignupModal';
 
@@ -44,6 +46,30 @@ export default function Header() {
   };
 
   return (
+
+    <div className={`bg-${bgColor} absolute top-0 w-full`}>
+      <nav className="flex items-center justify-between px-6 py-4">
+        {/* Brand */}
+        <div className="flex items-center space-x-3">
+          <div
+            className={`rounded px-2 py-2 text-${textHighlightColor} rounded-full bg-red-600 select-none`}
+          >
+           <FaHandHoldingHeart className='text-white animate-bounce'/> 
+          </div>
+          <span className={`text-${textColor} font-semibold text-lg select-none`}>
+            Life Partner
+          </span>
+        </div>
+
+        {/* Nav Buttons */}
+        <div className={`flex items-center space-x-4 text-${textColor} text-sm font-normal select-none`}>
+        <Link to="/chat-app">
+        Home</Link>
+          <a href="#" className="hover:underline text-base">About</a>
+          
+          <a href="#" className="hover:underline text-base">Demo</a>
+          <a href="#" className="hover:underline text-base">Contact</a>
+
     <>
       <div className={`bg-${bgColor} w-full z-50 fixed top-0 left-0 right-0`}>
         <nav className="flex items-center justify-between px-6 py-6">
@@ -76,6 +102,7 @@ export default function Header() {
               <i className="fas fa-lightbulb"></i>
               <span>23.7k</span>
             </button>
+
 
       
 
