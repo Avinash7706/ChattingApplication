@@ -5,10 +5,15 @@ import {
   FaInfoCircle,
   FaThumbtack,
 } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { accounts } from "../../commonArray/chattingArray";
 import { useState } from "react";
 import { FaChevronCircleUp, FaChevronCircleDown } from 'react-icons/fa';
 export default function LeftProfileSidebar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { id } = useParams(); // Destructure to get id directly
+  const selectedAccount = accounts.find((item) => item.id === id);
+ 
   return (
     <>
       <div className="flex flex-col items-center space-y-3">
@@ -16,11 +21,11 @@ export default function LeftProfileSidebar() {
           alt="Ann Schleifer profile picture, woman with curly hair and green shirt"
           className="w-20 h-20 rounded-full"
           height="80"
-          src="https://storage.googleapis.com/a1aa/image/aec93123-9edc-46ba-80a2-fdcd8a8321c2.jpg"
+          src={selectedAccount?selectedAccount.image:"https://storage.googleapis.com/a1aa/image/aec93123-9edc-46ba-80a2-fdcd8a8321c2.jpg"}
           width="80"
-        />
-        <h3 className="text-white font-semibold text-sm">Ann Schleifer</h3>
-        <p className="text-[#6b6b7b] text-xs select-text">ann_Schleifer22</p>
+        />  
+        <h3 className="text-white font-semibold text-sm">{selectedAccount?selectedAccount.name:"Ann Schleifer"}</h3>
+        <p className="text-[#6b6b7b] text-xs select-text">{selectedAccount?selectedAccount.email:"ann_Schleifer22"}</p>
 
         <div className="flex space-x-3 text-[#6b6b7b]">
           <button
