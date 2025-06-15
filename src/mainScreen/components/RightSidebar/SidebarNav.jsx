@@ -19,7 +19,7 @@ export default function SidebarNav({ searchValue }) {
  
 
   return (
-    <div className="flex flex-col space-y-2 max-h-[300px]">
+    <div className="flex flex-col space-y-2 max-h-[400px]">
       <div className="flex justify-between items-center text-xs text-white font-semibold px-2 pt-2">
         <span>Social Accounts</span>
         <button
@@ -39,14 +39,12 @@ export default function SidebarNav({ searchValue }) {
         {filteredAndSortedAccounts?.map((acc, idx) => (
           <Link
             key={idx}
-            className={`flex items-center space-x-3 rounded-lg ${
-              acc.gradient ? "" : "hover:bg-[#2a2545]"
+            className={`flex items-center space-x-3 rounded-lg transition-all duration-200 ${
+              acc.gradient ? "" : "hover:bg-gradient-to-r from-[#7f3aff] to-[#a56fff] hover:scale-[1.02]"
             } px-3 py-2 ${
-              acc.gradient ? "bg-gradient-to-r from-[#7f3aff] to-[#a56fff]" : ""
+              acc.gradient ? "" : ""
             }`}
             to={`/chat-app/${idx+1}`}
-
-            
           >
             <div
               className={`w-8 h-8 rounded-full ${acc.bgColor} flex items-center justify-center overflow-hidden`}
