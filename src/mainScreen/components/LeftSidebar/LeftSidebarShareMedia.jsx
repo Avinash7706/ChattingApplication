@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import PostModal from '../model/PostModal';
 
 export default function LeftSidebarShareMedia() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [activeTab, setActiveTab] = useState('images');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
