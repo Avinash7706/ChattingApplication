@@ -19,7 +19,7 @@ export default function SidebarNav({ searchValue }) {
  
 
   return (
-    <div className="flex flex-col space-y-2 max-h-[400px]">
+    <div className="flex flex-col space-y-2 max-h-[500px] ">
       <div className="flex justify-between items-center text-xs text-white font-semibold px-2 pt-2">
         <span>Social Accounts</span>
         <button

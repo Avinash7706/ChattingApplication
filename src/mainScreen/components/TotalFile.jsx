@@ -14,12 +14,12 @@ export default function TotalFile() {
   return (
     <div className="bg-[#0f0c29] min-h-screen w-full fixed flex">
       {/* Left Sidebar */}
-      <aside className="hidden fixed md:flex flex-col w-[25%] bg-[#1a1630] p-4 overflow-y-auto hide-scrollbar border-r-2 border-[#2a2545] h-screen">
+      <aside className="hidden  bg-[#2a2545] fixed md:flex flex-col w-[25%] bg-[#1a1630] p-4 overflow-y-auto hide-scrollbar border-r-2 border-[#2a2545]">
   {/* Sidebar container with full screen height */}
   <SidebarHeader />
 
   {/* SidebarBody takes remaining height */}
-  <div className="flex-grow overflow-y-auto bg-black">
+  <div className="overflow-y-auto  h-screen">
     <SidebarBody />
   </div>
 </aside>

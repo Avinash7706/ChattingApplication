@@ -12,7 +12,7 @@ const SidebarBody = () => {
   });
 
   return (
-    <div className="flex flex-col space-y-2 px-2 ">
+    <div className="flex flex-col space-y-2 px-2 bg-[#2a2545]">
       <hr className="bg-white h-[2px]" />
       <div className="flex items-center justify-between text-white font-semibold text-xs py-2 ">
         <span>Direct Message</span>
@@ -29,7 +29,7 @@ const SidebarBody = () => {
       </div>
 
       
-      <nav className="flex flex-col space-y-3 overflow-y-auto h-80 hide-scrollbar">
+      <nav className="flex flex-col space-y-3 overflow-y-auto max-h-[400px] hide-scrollbar ">
         {sortedMessages.map((msg, idx) => (
           <Link
             key={idx}
