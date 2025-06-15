@@ -39,7 +39,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignup }) {
 
   return (
     <div className={`fixed w-full h-full mt-20 bg-${bgColor}  bg-opacity-50 flex items-center justify-center z-[60]`}>
-      <div className={`bg-${bgColor} rounded-lg p-8 w-full max-w-   xl mx-4 border border-${borderColor}`}>
+      <div className={`bg-${bgColor} rounded-lg p-8 w-full max-w-xl mx-4 border border-${borderColor}`}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <h2 className={`text-${textColor} text-2xl font-bold`}>Login</h2>
